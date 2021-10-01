@@ -13,7 +13,8 @@ Docker compose file for running Pulsar Standalone and Pulsar Manager
 Run the following commands
 ```bash
 CSRF_TOKEN=$(curl http://localhost:7750/pulsar-manager/csrf-token)
-
+```
+```bash
 curl -H 'X-XSRF-TOKEN: $CSRF_TOKEN' -H 'Cookie: XSRF-TOKEN=$CSRF_TOKEN;' -H "Content-Type: application/json" -X PUT http://localhost:7750/pulsar-manager/users/superuser -d '{"name": "admin", "password": "adminpass", "description": "admin", "email": "admin@testemail.org"}'
 ```
 
@@ -23,7 +24,7 @@ Use the above username (`admin`) and password (`adminpass`) to login
 
 
 ### Setting up new environment
-use the following url when setting up new environment
+use the following value in "service URL" when setting up new environment (service name from docker-compose file)
 ```html
 http://pulsarcore:8080
 ```
