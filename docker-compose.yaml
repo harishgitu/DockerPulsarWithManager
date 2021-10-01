@@ -1,0 +1,38 @@
+version: '3.1'
+services:
+  pulsarcore:
+    image: apachepulsar/pulsar:2.8.1
+    restart: always
+    container_name: pulsar
+    ports:
+      - 8095:8080
+      - 6650:6650
+    environment:
+      PULSAR_MEM: " -Xms512m -Xmx512m -XX:MaxDirectMemorySize=1g"
+    volumes:
+      - pulsardata:/pulsar/data
+      - pulsarconf:/pulsar/conf
+    command: bin/pulsar standalone
+    networks:
+      - pulsarnet
+
+  pulsaradmin:
+    image: apachepulsar/pulsar-manager:v0.2.0
+    restart: always
+    container_name: pulsaradmin
+    ports:
+      - 9527:9527
+      - 7750:7750
+    environment:
+      SPRING_CONFIGURATION_FILE: /pulsar-manager/pulsar-manager/application.properties
+    networks:
+      - pulsarnet
+
+networks:
+  pulsarnet:
+    name: pulsarnet
+    driver: bridge
+
+volumes:
+  pulsardata:
+  pulsarconf:
