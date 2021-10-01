@@ -29,5 +29,5 @@ http://pulsarcore:8080
 ```
 
 #### More reading and additiona options
-[Apache Pulsar](https://github.com/apache/pulsar-manager)
-[Wordpress Page](https://jpinjpblog.wordpress.com/2020/12/10/pulsar-with-manager-and-dashboard-on-docker-compose/)
+- [Apache Pulsar](https://github.com/apache/pulsar-manager)
+- [Wordpress Page](https://jpinjpblog.wordpress.com/2020/12/10/pulsar-with-manager-and-dashboard-on-docker-compose/)
